@@ -1,0 +1,39 @@
+##  configuracion Swich cisco cuando mi equipo es root
+habilitamos el portfast pero a la vez tambien tenemos la proteccion 
+de los puerto como el guard root y el bpduguard para evitar cualquier anomalia ##
+
+
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+interface FastEthernet0/1
+ switchport mode trunk
+ spanning-tree guard root
+!
+interface FastEthernet0/2
+ switchport mode trunk
+ spanning-tree guard root
+!
+interface FastEthernet0/3
+ switchport mode trunk
+ spanning-tree guard root
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/6
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
+!
+interface FastEthernet0/7
+ switchport access vlan 20
+ switchport mode access
+ spanning-tree portfast
+ spanning-tree bpduguard enable
